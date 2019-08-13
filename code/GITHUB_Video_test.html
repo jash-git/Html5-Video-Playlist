@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Video Element src Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <video id="player" width="1280" height="720" controls style="background:black"></video>
+        <script>
+        var player = document.getElementById('player')
+		var string1="https://github.com/jash-git/Html5-Video-Playlist/blob/master/code/videos/ts2mp4/"
+		var string2="?raw=true"
+        var playlist = [
+          "01.mp4",
+          "02.mp4",
+          "03.mp4",
+          "04.mp4",
+          "05.mp4",
+          "06.mp4",
+          "07.mp4",
+          "08.mp4",
+          "09.mp4",
+          "10.mp4",
+          "11.mp4",
+          "12.mp4",
+          "13.mp4",
+          "14.mp4",
+          "15.mp4",
+          "16.mp4",
+          "17.mp4",
+          "18.mp4",
+          "19.mp4",
+          "20.mp4",		  
+        ]
+        var activeVideo = 0
+		var fileurl = string1 + playlist[activeVideo]+ string2
+        player.src = fileurl
+
+        player.addEventListener('ended', function(e) {
+          // update the new active video index
+          activeVideo = (++activeVideo) % playlist.length
+		  var string1="https://github.com/jash-git/Html5-Video-Playlist/blob/master/code/videos/ts2mp4/"
+		  var string2="?raw=true"
+		  var fileurl = string1 + playlist[activeVideo]+ string2
+          player.src = fileurl
+          player.play()
+        })
+        </script>
+    </body>
+</html>
