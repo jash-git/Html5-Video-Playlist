@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Video Element src Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <video id="player" width="1280" height="720" controls style="background:black"></video>
+        <script>
+        var player = document.getElementById('player')
+        var playlist = [
+          "videos/ts2mp4/01.mp4",
+          "videos/ts2mp4/02.mp4",
+          "videos/ts2mp4/03.mp4",
+          "videos/ts2mp4/04.mp4",
+          "videos/ts2mp4/05.mp4",
+          "videos/ts2mp4/06.mp4",
+          "videos/ts2mp4/07.mp4",
+          "videos/ts2mp4/08.mp4",
+          "videos/ts2mp4/09.mp4",
+          "videos/ts2mp4/10.mp4",
+          "videos/ts2mp4/11.mp4",
+          "videos/ts2mp4/12.mp4",
+          "videos/ts2mp4/13.mp4",
+          "videos/ts2mp4/14.mp4",
+          "videos/ts2mp4/15.mp4",
+          "videos/ts2mp4/16.mp4",
+          "videos/ts2mp4/17.mp4",
+          "videos/ts2mp4/18.mp4",
+          "videos/ts2mp4/19.mp4",
+          "videos/ts2mp4/20.mp4",		  
+        ]
+        var activeVideo = 0
+        player.src = playlist[activeVideo]
+
+        player.addEventListener('ended', function(e) {
+          // update the new active video index
+          activeVideo = (++activeVideo) % playlist.length
+          player.src = playlist[activeVideo]
+          player.play()
+        })
+        </script>
+    </body>
+</html>
